@@ -2,10 +2,12 @@ package com.example.barvolume
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import com.example.barvolume.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -43,6 +45,44 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             val result = savedInstanceState.getString(STATE_RESULT)
             binding.valResult.text = result
         }
+
+        Toast.makeText(this,"onCreated called",Toast.LENGTH_LONG).show()
+    }
+
+     override fun onStart() {
+         super.onStart()
+         val toast = Toast.makeText(this, "onStart Called", Toast.LENGTH_LONG).show();
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        val toast = Toast.makeText(this, "onRestart Called", Toast.LENGTH_LONG).show();
+    }
+    override fun onResume() {
+        super.onResume()
+        val toast = Toast.makeText(applicationContext, "onResume Called", Toast.LENGTH_LONG).show()
+    }
+    override fun onPause() {
+        super.onPause()
+        // It will show a message on the screen
+        // then onPause is invoked
+        val toast = Toast.makeText(applicationContext, "onPaused Called", Toast.LENGTH_LONG).show()
+    }
+    override fun onStop() {
+        super.onStop()
+        val toast = Toast.makeText(applicationContext, "onStop Called", Toast.LENGTH_LONG).show()
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        val toast = Toast.makeText(applicationContext, "onDestroy Called", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onRestoreInstanceState(
+        savedInstanceState: Bundle?,
+        persistentState: PersistableBundle?
+    ) {
+        super.onRestoreInstanceState(savedInstanceState, persistentState)
+        val toast = Toast.makeText(applicationContext, "onRestoreInstanceCalled Called", Toast.LENGTH_LONG).show()
     }
 
 //    override fun onClick(v: View?) {
@@ -105,6 +145,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
+        val toast = Toast.makeText(applicationContext, "onSaveInstanceState Called", Toast.LENGTH_LONG).show()
         outState.putString(STATE_RESULT,binding.valResult.text.toString())
     }
 }
