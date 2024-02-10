@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.RadioGroup
+import android.widget.Toast
 
 class MoveForResultActivity : AppCompatActivity(), View.OnClickListener {
     companion object {
@@ -26,8 +27,35 @@ class MoveForResultActivity : AppCompatActivity(), View.OnClickListener {
         btnChoose.setOnClickListener(this)
 
     }
+    override fun onStart() {
+        super.onStart()
+        val toast = Toast.makeText(this, "onStart result Called", Toast.LENGTH_LONG).show();
+    }
 
-    override fun onClick(v: View?) {
+    override fun onRestart() {
+        super.onRestart()
+        val toast = Toast.makeText(this, "onRestart result Called", Toast.LENGTH_LONG).show();
+    }
+    override fun onResume() {
+        super.onResume()
+        val toast = Toast.makeText(applicationContext, "onResume result Called", Toast.LENGTH_LONG).show()
+    }
+    override fun onPause() {
+        super.onPause()
+        // It will show a message on the screen
+        // then onPause is invoked
+        val toast = Toast.makeText(applicationContext, "nPaused result Called", Toast.LENGTH_LONG).show()
+    }
+    override fun onStop() {
+        super.onStop()
+        val toast = Toast.makeText(applicationContext, "onStop result Called", Toast.LENGTH_LONG).show()
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        val toast =
+            Toast.makeText(applicationContext, "onDestroy result Called", Toast.LENGTH_LONG).show()
+    }
+        override fun onClick(v: View?) {
         if(v?.id == R.id.btn_choose) {
             if(valNumber.checkedRadioButtonId > 0) {
                 var value = 0

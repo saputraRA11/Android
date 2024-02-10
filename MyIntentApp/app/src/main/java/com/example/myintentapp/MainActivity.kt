@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -41,6 +42,35 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btnMoveForResult.setOnClickListener(this)
         valResult = findViewById(R.id.val_result)
     }
+
+    override fun onStart() {
+        super.onStart()
+        val toast = Toast.makeText(this, "onStart Main Called", Toast.LENGTH_LONG).show();
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        val toast = Toast.makeText(this, "onRestart Main Called", Toast.LENGTH_LONG).show();
+    }
+    override fun onResume() {
+        super.onResume()
+        val toast = Toast.makeText(applicationContext, "onResume Main Called", Toast.LENGTH_LONG).show()
+    }
+    override fun onPause() {
+        super.onPause()
+        // It will show a message on the screen
+        // then onPause is invoked
+        val toast = Toast.makeText(applicationContext, "onPaused Main Called", Toast.LENGTH_LONG).show()
+    }
+    override fun onStop() {
+        super.onStop()
+        val toast = Toast.makeText(applicationContext, "onStop Main Called", Toast.LENGTH_LONG).show()
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        val toast = Toast.makeText(applicationContext, "onDestroy Main Called", Toast.LENGTH_LONG).show()
+    }
+
 
     override fun onClick(v: View?) {
         when(v?.id) {
