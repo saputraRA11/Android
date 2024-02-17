@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">GitHub User (Navigation dan API)</string>
+    <string name="name">Nama User</string>
+    <string name="username">Username</string>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
+    <string name="nullable">0</string>
+    <string name="location">Location</string>
+    <string name="work">Work</string>
+    <string name="repositories">Repositories</string>
+    <string name="work_space">Work at</string>
+    <string name="separator">Separator</string>
+</resources>
